@@ -5,8 +5,14 @@
  */
 package mrr_javase_lab004;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import static java.util.stream.Collectors.toMap;
 
 /**
  *
@@ -30,19 +36,17 @@ public class Lab004Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jScrollPane1.setViewportView(jTextPane1);
-
-        jScrollPane2.setViewportView(jTextPane2);
 
         jButton1.setText("Очистить");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -65,38 +69,59 @@ public class Lab004Frame extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane4.setViewportView(jTextArea2);
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane5.setViewportView(jTextArea3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane4)
+                                .addGap(63, 63, 63))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))))
-                .addContainerGap(95, Short.MAX_VALUE))
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5))))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -106,40 +131,67 @@ public class Lab004Frame extends javax.swing.JFrame {
     
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jTextPane1.setText(""); //очистить 
+        jTextArea2.setText(null); //очистить 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jTextPane2.setText(""); //очистить
+        jTextArea3.setText(null); //очистить
     }//GEN-LAST:event_jButton2ActionPerformed
   
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String NewTextColumn = "";
-        String [] Pane1Array = jTextPane1.toString().split("\\s"); // если нажата клавиша парсим первую колонку в массив слов
-        String [] Pane2Array = jTextPane2.toString().split("\\s"); // если нажата клавиша парсим вторую колонку в массив слов
-        int LenghtOfPane2Array = Pane2Array.length; // сохраняем длинну второго массива для перебора
-        int [] ValueOfPane2Array = new int [LenghtOfPane2Array]; // создаем новый массив для счета
-      
-        for(int i =0 ; i < Pane1Array.length;i++){
-            for(int k = 0; k < Pane2Array.length;k++){
-                String Number1 = Pane1Array[i];
-                String Number2 = Pane2Array[k];
-                int FinalStringNumber = ValueOfPane2Array[k];
-                if(Number1.equals(Number2)){
-                    ValueOfPane2Array[k]=FinalStringNumber+1; // увеличиваем значение в массиве на 1 если они совпали
-
-                }
-        }
-           
-            for(int l = 0; l < Pane2Array.length;l++){
-                 NewTextColumn = NewTextColumn + Pane2Array[l] + Integer.toString(ValueOfPane2Array[l]) + "/n";
-                        
-            }
         
-            
-    }//GEN-LAST:event_jButton3ActionPerformed
-        jTextPane2.setText(NewTextColumn);
+             ArrayList<String> MainText = new ArrayList<>(); 
+             ArrayList<String> SecondText = new ArrayList<>();
+             HashMap<String,Integer> WordsToFind = new HashMap<>();
+             try{
+                  for (int i = 0; i < jTextArea2.getLineCount(); i++) {
+                int start = jTextArea2.getLineStartOffset(i);
+                int end = jTextArea2.getLineEndOffset(i);
+                // Проверяем является ли строка пустой (== - не работает)
+                String line = jTextArea2.getText(start, end - start).trim();
+                if (line.equals("")) { continue; }
+                MainText.add(line); // добавление фамилии в массив
+                  }
+             }
+             catch(Exception ex){
+             return;
+             }
+             
+             try{
+                  for (int i = 0; i < jTextArea3.getLineCount(); i++) {
+                int start = jTextArea3.getLineStartOffset(i);
+                int end = jTextArea3.getLineEndOffset(i);
+                // Проверяем является ли строка пустой (== - не работает)
+                String line = jTextArea3.getText(start, end - start).trim();
+                if (line.equals("")) { continue; }
+                SecondText.add(line); // добавление фамилии в массив
+                  }
+             }
+             catch(Exception ex){
+             return;
+             }
+             int countOfArray = SecondText.size();
+             for(int i= 0 ; i < countOfArray; i++){
+             WordsToFind.put(SecondText.get(i), 0);
+             
+                     
     }
+             countOfArray=MainText.size();
+             for(int i = 0 ; i < countOfArray; i++){
+                 String varText = MainText.get(i);
+                 if(WordsToFind.containsKey(varText)){
+                     WordsToFind.put(varText, WordsToFind.get(varText)+1);
+                     
+                 }
+             }
+             
+             
+             WordsToFind = WordsToFind.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(toMap(e -> e.getKey(),e -> e.getValue(),(e1,e2) -> e2,LinkedHashMap::new));
+             System.out.println(WordsToFind);
+             WordsToFind.forEach((key,value)->jTextArea1.append(key + " встречается " + value + " раз \n"));
+             
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -180,10 +232,12 @@ public class Lab004Frame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     // End of variables declaration//GEN-END:variables
 }
 
